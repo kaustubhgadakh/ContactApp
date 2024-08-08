@@ -15,5 +15,5 @@ struct Contact: Identifiable{
     var mobileNumber: String
     var email: String
     var isFavorite: Bool = false
-    var image: UIImage?
+    var image: String?
 }

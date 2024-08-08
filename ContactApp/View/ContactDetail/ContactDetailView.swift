@@ -22,13 +22,20 @@ struct ContactDetailView: View {
                         .overlay(alignment: .center) {
                             VStack{
                                 Spacer()
-                                if let image = contact.image{
-                                    Image(uiImage: image)
+                                if true{
+                                    Image(contact.image!)
                                         .resizable()
                                         .frame(width: 150, height: 150)
-                                        .background(
-                                            Capsule()
-                                                .stroke(Color.white, lineWidth: 2)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            Circle()
+                                                .fill(Color.white)
+                                                .frame(width: 50, height: 50)
+                                                .overlay(
+                                                    Image("camera_button")
+                                                        .font(.title)
+                                                        .foregroundColor(.white)
+                                                ), alignment: .bottomTrailing
                                         )
                                         
                                 }else{

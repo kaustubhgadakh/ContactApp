@@ -16,8 +16,8 @@ struct AddContactView: View {
     @State private var mobileNumber: String = ""
     @State private var email: String = ""
     @State private var isFavorite: Bool = false
+    @State private var image: String = "placeholder_photo"
     @State var saveAlert: Bool = false
-    
     var body: some View {
         NavigationStack {
             ZStack{
@@ -137,7 +137,7 @@ struct AddContactView: View {
                     Text("Cancle")
                         .foregroundStyle(Color("Icon"))
                 }), trailing: Button(action: {
-                    let newContact = Contact(firstName: firstName, lastName: lastName, mobileNumber: mobileNumber, email: email, isFavorite: isFavorite)
+                    let newContact = Contact(firstName: firstName, lastName: lastName, mobileNumber: mobileNumber, email: email, isFavorite: isFavorite, image: image)
                     viewModel.addContact(contact: newContact)
                     saveAlert.toggle()
                 }, label: {

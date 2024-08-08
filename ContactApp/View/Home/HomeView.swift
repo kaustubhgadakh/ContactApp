@@ -28,12 +28,11 @@ struct HomeView: View {
                     .padding(10)
                     .background(Color("searchBackground"))
                     
-                    
                     ForEach(viewModel.contacts){contact in
                         NavigationLink(destination: ContactDetailView(contact: contact, viewModel: viewModel)){
                             HStack(spacing: 16){
-                                if let image = contact.image{
-                                    Image(uiImage: image)
+                                if true{
+                                    Image(contact.image!)
                                         .resizable()
                                         .frame(width: 50, height: 50)
                                         .clipShape(Circle())
@@ -41,9 +40,7 @@ struct HomeView: View {
                                     Image("placeholder_photo")
                                         .resizable()
                                         .frame(width: 50, height: 50)
-                                        .foregroundColor(.gray)
-                                }
-                                
+                                }  
                                 VStack(alignment: .leading){
                                     Text("\(contact.firstName) \(contact.lastName)")
                                         .fontWeight(.bold)
@@ -59,34 +56,29 @@ struct HomeView: View {
                             .padding(.leading ,16)
                             .padding(.vertical, 12)
                         }
-                        
                         Divider()
                     }
                     .navigationTitle("Contact")
                     .navigationBarTitleDisplayMode(.inline)
                     .navigationBarItems(leading: Button(action: {}, label: {
-                        Text("Groups")
-                            .foregroundStyle(Color("Icon"))
-                    }), trailing: Button(action: {
-                        addContact.toggle()
-                    }, label: {
-                        Image(systemName: "plus")
-                            .foregroundStyle(Color("Icon"))
-                    })
-                        .fullScreenCover(isPresented: $addContact, content: {
-                            AddContactView(viewModel: viewModel)
+                            Text("Groups")
+                                .foregroundStyle(Color("Icon"))
+                        }), trailing: Button(action: {
+                            addContact.toggle()
+                        }, label: {
+                            Image(systemName: "plus")
+                                .foregroundStyle(Color("Icon"))
                         })
-                )
-                    
-
+                            .fullScreenCover(isPresented: $addContact, content: {
+                                AddContactView(viewModel: viewModel)
+                            })
+                    )
                 }
                 .overlay(alignment: .trailing) {
                     AlphabetIndexView()
                 }
                 
             }
-            
-            
             
             Spacer()
         }
