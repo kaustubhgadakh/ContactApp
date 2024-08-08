@@ -16,6 +16,7 @@ struct AddContactView: View {
     @State private var mobileNumber: String = ""
     @State private var email: String = ""
     @State private var isFavorite: Bool = false
+    @State var saveAlert: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -131,17 +132,22 @@ struct AddContactView: View {
                 }
             }
             .navigationBarItems(leading: Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }, label: {
-                Text("Cancle")
-                    .foregroundStyle(Color("Icon"))
-            }), trailing: Button(action: {
-                let newContact = Contact(firstName: firstName, lastName: lastName, mobileNumber: mobileNumber, email: email, isFavorite: isFavorite)
-                viewModel.addContact(contact: newContact)
-            }, label: {
-                Text("Done")
-                    .foregroundStyle(Color("Icon"))
-            }))
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Text("Cancle")
+                        .foregroundStyle(Color("Icon"))
+                }), trailing: Button(action: {
+                    let newContact = Contact(firstName: firstName, lastName: lastName, mobileNumber: mobileNumber, email: email, isFavorite: isFavorite)
+                    viewModel.addContact(contact: newContact)
+                    saveAlert.toggle()
+                }, label: {
+                    Text("Done")
+                        .foregroundStyle(Color("Icon"))
+                })
+                .alert(isPresented: $saveAlert, content: {
+                    Alert(title: Text("Success"))
+                })
+            )
         }
     }
 }

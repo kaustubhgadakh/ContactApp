@@ -12,7 +12,6 @@
 		B96061262C63C08C00EE263B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96061252C63C08C00EE263B /* HomeView.swift */; };
 		B96061282C63C08E00EE263B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B96061272C63C08E00EE263B /* Assets.xcassets */; };
 		B960612B2C63C08E00EE263B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B960612A2C63C08E00EE263B /* Preview Assets.xcassets */; };
-		B96061352C63C08E00EE263B /* ContactAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96061342C63C08E00EE263B /* ContactAppTests.swift */; };
 		B960613F2C63C08E00EE263B /* ContactAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960613E2C63C08E00EE263B /* ContactAppUITests.swift */; };
 		B96061412C63C08E00EE263B /* ContactAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96061402C63C08E00EE263B /* ContactAppUITestsLaunchTests.swift */; };
 		B96061522C63DE4500EE263B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96061512C63DE4400EE263B /* Contact.swift */; };
@@ -20,6 +19,8 @@
 		B960615B2C63F46F00EE263B /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960615A2C63F46F00EE263B /* ContactDetailView.swift */; };
 		B960615D2C63F48E00EE263B /* EditContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960615C2C63F48E00EE263B /* EditContactView.swift */; };
 		B960615F2C63F4ED00EE263B /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B960615E2C63F4ED00EE263B /* AddContactView.swift */; };
+		B964DF3B2C64F3FE00490DA8 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964DF3A2C64F3FE00490DA8 /* ModelTests.swift */; };
+		B964DF3D2C64FAB000490DA8 /* ContactAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B964DF3C2C64FAB000490DA8 /* ContactAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,6 @@
 		B96061272C63C08E00EE263B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B960612A2C63C08E00EE263B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B96061302C63C08E00EE263B /* ContactAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B96061342C63C08E00EE263B /* ContactAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppTests.swift; sourceTree = "<group>"; };
 		B960613A2C63C08E00EE263B /* ContactAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B960613E2C63C08E00EE263B /* ContactAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppUITests.swift; sourceTree = "<group>"; };
 		B96061402C63C08E00EE263B /* ContactAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -56,6 +56,8 @@
 		B960615A2C63F46F00EE263B /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 		B960615C2C63F48E00EE263B /* EditContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactView.swift; sourceTree = "<group>"; };
 		B960615E2C63F4ED00EE263B /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		B964DF3A2C64F3FE00490DA8 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		B964DF3C2C64FAB000490DA8 /* ContactAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +129,8 @@
 		B96061332C63C08E00EE263B /* ContactAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				B96061342C63C08E00EE263B /* ContactAppTests.swift */,
+				B964DF3C2C64FAB000490DA8 /* ContactAppTests.swift */,
+				B964DF3A2C64F3FE00490DA8 /* ModelTests.swift */,
 			);
 			path = ContactAppTests;
 			sourceTree = "<group>";
@@ -346,7 +349,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B96061352C63C08E00EE263B /* ContactAppTests.swift in Sources */,
+				B964DF3B2C64F3FE00490DA8 /* ModelTests.swift in Sources */,
+				B964DF3D2C64FAB000490DA8 /* ContactAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

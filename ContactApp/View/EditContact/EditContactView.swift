@@ -11,6 +11,7 @@ struct EditContactView: View {
     @State var contact: Contact
     @ObservedObject var viewModel: ContactViewModel
     @Environment(\.presentationMode) var presentationMode
+    @State var addContactAlert: Bool = false
     var body: some View {
         NavigationStack {
             ZStack{
@@ -136,16 +137,22 @@ struct EditContactView: View {
                 }
             }
             .navigationBarItems(leading: Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }, label: {
-                Text("Cancle")
-                    .foregroundStyle(Color("Icon"))
-            }), trailing: Button(action: {
-                viewModel.updateContact(contact: contact)
-            }, label: {
-                Text("Done")
-                    .foregroundStyle(Color("Icon"))
-            }))
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Text("Cancle")
+                        .foregroundStyle(Color("Icon"))
+                }), trailing: Button(action: {
+                    addContactAlert.toggle()
+                    viewModel.updateContact(contact: contact)
+                }, label: {
+                    Text("Done")
+                        .foregroundStyle(Color("Icon"))
+                }
+                )
+                .alert(isPresented: $addContactAlert, content: {
+                    Alert(title: Text("Success"))
+                })
+            )
         }
     }
 }
