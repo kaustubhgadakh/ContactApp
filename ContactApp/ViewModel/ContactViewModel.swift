@@ -27,6 +27,9 @@ class ContactViewModel: ObservableObject{
         ]
     }
     
+    func addContact(contact: Contact){
+        contacts.append(contact)
+    }
     
     func updateContact(contact: Contact){
         if let index = contacts.firstIndex(where: {$0.id == contact.id}){

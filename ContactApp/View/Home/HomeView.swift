@@ -62,7 +62,7 @@ struct HomeView: View {
                             .foregroundStyle(Color("Icon"))
                     })
                         .fullScreenCover(isPresented: $addContact, content: {
-                            AddContactView()
+                            AddContactView(viewModel: viewModel)
                         })
                 )
                     
