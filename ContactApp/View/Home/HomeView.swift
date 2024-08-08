@@ -19,7 +19,7 @@ struct HomeView: View {
                 
                 ScrollView {
                     ForEach(viewModel.contacts){contact in
-                        NavigationLink(destination: ContactDetailView()){
+                        NavigationLink(destination: ContactDetailView(contact: contact, viewModel: viewModel)){
                             HStack(spacing: 16){
                                 if let image = contact.image{
                                     Image(uiImage: image)
@@ -65,11 +65,14 @@ struct HomeView: View {
                             AddContactView()
                         })
                 )
+
                 }
                 .overlay(alignment: .trailing) {
                     AlphabetIndexView()
                 }
+                
             }
+            
             
             
             Spacer()
