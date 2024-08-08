@@ -20,7 +20,7 @@ struct HomeView: View {
                 ScrollView {
                     ForEach(viewModel.contacts){contact in
                         NavigationLink(destination: ContactDetailView()){
-                            HStack{
+                            HStack(spacing: 16){
                                 if let image = contact.image{
                                     Image(uiImage: image)
                                         .resizable()
@@ -31,20 +31,21 @@ struct HomeView: View {
                                         .frame(width: 50, height: 50)
                                         .foregroundColor(.gray)
                                 }
+                                
+                                VStack(alignment: .leading){
+                                    Text("\(contact.firstName) \(contact.lastName)")
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(Color("Font"))
+                                }
+                                Spacer()
+                                if contact.isFavorite{
+                                    Image(systemName: "star.fill")
+                                        .foregroundColor(Color("Icon"))
+                                        .padding(.trailing, 32)
+                                }
                             }
+                            .padding(.leading ,16)
                             .padding(.vertical, 12)
-                            .padding(.horizontal, 16)
-                            VStack(alignment: .leading){
-                                Text("\(contact.firstName) \(contact.lastName)")
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(Color("Font"))
-                            }
-                            Spacer()
-                            if contact.isFavorite{
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(Color("Icon"))
-                                    .padding(.trailing, 32)
-                            }
                         }
                         
                         Divider()
@@ -65,13 +66,13 @@ struct HomeView: View {
                         })
                 )
                 }
+                .overlay(alignment: .trailing) {
+                    AlphabetIndexView()
+                }
             }
             
-            Spacer()
             
-        }
-        .overlay(alignment: .trailing) {
-            AlphabetIndexView()
+            Spacer()
         }
     }
 }
