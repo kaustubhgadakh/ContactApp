@@ -33,12 +33,22 @@ struct EditContactView: View {
                                         )
                                     
                                 }else{
-                                    Circle()
+                                    Image("placeholder_photo")
+                                        .resizable()
                                         .frame(width: 150, height: 150)
-                                        .foregroundColor(.gray)
                                         .background(
                                             Capsule()
-                                                .stroke(Color.white, lineWidth: 5.0)
+                                                .stroke(Color.white, lineWidth: 2)
+                                        )
+                                        .overlay(
+                                            Circle()
+                                                .fill(Color.white)
+                                                .frame(width: 50, height: 50)
+                                                .overlay(
+                                                    Image("camera_button")
+                                                        .font(.title)
+                                                        .foregroundColor(.white)
+                                                ), alignment: .bottomTrailing
                                         )
                                 }
                                 Spacer()

@@ -18,6 +18,17 @@ struct HomeView: View {
                     .ignoresSafeArea(edges: .bottom)
                 
                 ScrollView {
+                    HStack{
+                        Text("A")
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 10)
+                        Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(10)
+                    .background(Color("searchBackground"))
+                    
+                    
                     ForEach(viewModel.contacts){contact in
                         NavigationLink(destination: ContactDetailView(contact: contact, viewModel: viewModel)){
                             HStack(spacing: 16){

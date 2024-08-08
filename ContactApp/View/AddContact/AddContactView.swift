@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddContactView: View {
-//    @State var contact: Contact
     @ObservedObject var viewModel: ContactViewModel
     @Environment(\.presentationMode) var presentationMode
     
@@ -30,12 +29,22 @@ struct AddContactView: View {
                         .overlay(alignment: .center) {
                             VStack{
                                 Spacer()
-                                Circle()
+                                Image("placeholder_photo")
+                                    .resizable()
                                     .frame(width: 150, height: 150)
-                                    .foregroundColor(.gray)
                                     .background(
                                         Capsule()
-                                            .stroke(Color.white, lineWidth: 5.0)
+                                            .stroke(Color.white, lineWidth: 2)
+                                    )
+                                    .overlay(
+                                        Circle()
+                                            .fill(Color.white)
+                                            .frame(width: 50, height: 50)
+                                            .overlay(
+                                                Image("camera_button")
+                                                    .font(.title)
+                                                    .foregroundColor(.white)
+                                            ), alignment: .bottomTrailing
                                     )
                                 Spacer()
                             }
@@ -51,7 +60,7 @@ struct AddContactView: View {
                                 .frame(width: 90)
                                 .multilineTextAlignment(.trailing)
                             
-                            TextField("firstName", text: $firstName)
+                            TextField("", text: $firstName)
                                 .font(.headline)
                                 .foregroundStyle(.gray)
                         }
@@ -65,7 +74,7 @@ struct AddContactView: View {
                                 .frame(width: 90)
                                 .multilineTextAlignment(.trailing)
                             
-                            TextField("lastName", text: $lastName)
+                            TextField("", text: $lastName)
                                 .font(.headline)
                                 .foregroundStyle(.gray)
                         }
@@ -81,7 +90,7 @@ struct AddContactView: View {
                                 
                                 
                             
-                            TextField("mobile", text: $mobileNumber)
+                            TextField("", text: $mobileNumber)
                                 .font(.headline)
                                 .foregroundStyle(.gray)
                         }
@@ -95,7 +104,7 @@ struct AddContactView: View {
                                 .frame(width: 90)
                                 .multilineTextAlignment(.trailing)
                             
-                            TextField("email", text: $email)
+                            TextField("", text: $email)
                                 .font(.headline)
                                 .foregroundStyle(.gray)
                         }
