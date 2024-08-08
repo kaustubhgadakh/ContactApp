@@ -38,7 +38,8 @@ struct HomeView: View {
                                         .frame(width: 50, height: 50)
                                         .clipShape(Circle())
                                 }else{
-                                    Circle()
+                                    Image("placeholder_photo")
+                                        .resizable()
                                         .frame(width: 50, height: 50)
                                         .foregroundColor(.gray)
                                 }

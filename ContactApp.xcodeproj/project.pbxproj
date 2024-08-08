@@ -83,14 +83,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B94371722C64755F00CA23A6 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				B94371732C64759400CA23A6 /* AlphabetIndexView.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
 		B96061172C63C08C00EE263B = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +110,6 @@
 				B960614D2C63C39400EE263B /* Model */,
 				B960614F2C63C3EA00EE263B /* ViewModel */,
 				B96061502C63C42F00EE263B /* View */,
-				B94371722C64755F00CA23A6 /* Component */,
 				B96061272C63C08E00EE263B /* Assets.xcassets */,
 				B96061292C63C08E00EE263B /* Preview Content */,
 			);
@@ -181,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				B96061252C63C08C00EE263B /* HomeView.swift */,
+				B94371732C64759400CA23A6 /* AlphabetIndexView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
