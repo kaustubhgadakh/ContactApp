@@ -90,6 +90,8 @@ struct ContactDetailView: View {
                             Text("mobile")
                                 .font(.headline)
                                 .foregroundStyle(.gray.opacity(0.5))
+                                .frame(width: 70)
+                                .multilineTextAlignment(.trailing)
                             
                             Text("+ 91 \(contact.mobileNumber)")
                                 .font(.headline)
@@ -100,9 +102,11 @@ struct ContactDetailView: View {
                         .padding(.horizontal, 24)
                         Divider()
                         HStack(spacing: 32){
-                            Text("email")
+                            Text(" email")
                                 .font(.headline)
                                 .foregroundStyle(.gray.opacity(0.5))
+                                .frame(width: 70)
+                                .multilineTextAlignment(.trailing)
                             
                             Text(contact.email)
                                 .font(.headline)
@@ -122,11 +126,11 @@ struct ContactDetailView: View {
                 .navigationBarItems(trailing: Button(action: {
                     editContact.toggle()
                 }, label: {
-                    Image(systemName: "plus")
+                    Text("Edit")
                         .foregroundStyle(Color("Icon"))
                 })
                     .fullScreenCover(isPresented: $editContact, content: {
-                        AddContactView()
+                        EditContactView(contact: contact, viewModel: viewModel)
                 }))
                 
                 

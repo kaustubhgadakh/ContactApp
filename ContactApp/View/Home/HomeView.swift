@@ -65,6 +65,7 @@ struct HomeView: View {
                             AddContactView()
                         })
                 )
+                    
 
                 }
                 .overlay(alignment: .trailing) {

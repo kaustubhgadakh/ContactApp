@@ -26,4 +26,11 @@ class ContactViewModel: ObservableObject{
             Contact(firstName: "Shwetark", lastName: "Kadam", mobileNumber: "8766419101", email: "shwetarkkadam2001@gmail.com", isFavorite: true),
         ]
     }
+    
+    
+    func updateContact(contact: Contact){
+        if let index = contacts.firstIndex(where: {$0.id == contact.id}){
+            contacts[index] = contact
+        }
+    }
 }
