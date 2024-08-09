@@ -27,16 +27,6 @@ struct ContactDetailView: View {
                                         .resizable()
                                         .frame(width: 150, height: 150)
                                         .clipShape(Circle())
-                                        .overlay(
-                                            Circle()
-                                                .fill(Color.white)
-                                                .frame(width: 50, height: 50)
-                                                .overlay(
-                                                    Image("camera_button")
-                                                        .font(.title)
-                                                        .foregroundColor(.white)
-                                                ), alignment: .bottomTrailing
-                                        )
                                         
                                 }else{
                                     Image("placeholder_photo")
@@ -45,16 +35,6 @@ struct ContactDetailView: View {
                                         .background(
                                             Capsule()
                                                 .stroke(Color.white, lineWidth: 2)
-                                        )
-                                        .overlay(
-                                            Circle()
-                                                .fill(Color.white)
-                                                .frame(width: 50, height: 50)
-                                                .overlay(
-                                                    Image("camera_button")
-                                                        .font(.title)
-                                                        .foregroundColor(.white)
-                                                ), alignment: .bottomTrailing
                                         )
                                 }
                                 
@@ -133,12 +113,8 @@ struct ContactDetailView: View {
                         .frame(height: 56)
                         .padding(.horizontal, 24)
                     }
-                    
-                    
                     Divider()
                     Spacer()
-            
-                    
                 }
                 .navigationBarItems(trailing: Button(action: {
                     editContact.toggle()

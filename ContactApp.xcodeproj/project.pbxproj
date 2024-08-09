@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B90AAEF32C653FA30000AAB3 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AAEF22C653FA30000AAB3 /* UITests.swift */; };
+		B90AAEF52C66158E0000AAB3 /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AAEF42C66158E0000AAB3 /* ContactListView.swift */; };
 		B94371742C64759400CA23A6 /* AlphabetIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94371732C64759400CA23A6 /* AlphabetIndexView.swift */; };
 		B96061242C63C08C00EE263B /* ContactAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96061232C63C08C00EE263B /* ContactAppApp.swift */; };
 		B96061262C63C08C00EE263B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96061252C63C08C00EE263B /* HomeView.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		B90AAEF22C653FA30000AAB3 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
+		B90AAEF42C66158E0000AAB3 /* ContactListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		B94371732C64759400CA23A6 /* AlphabetIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetIndexView.swift; sourceTree = "<group>"; };
 		B96061202C63C08C00EE263B /* ContactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96061232C63C08C00EE263B /* ContactAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppApp.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				B96061252C63C08C00EE263B /* HomeView.swift */,
+				B90AAEF42C66158E0000AAB3 /* ContactListView.swift */,
 				B94371732C64759400CA23A6 /* AlphabetIndexView.swift */,
 			);
 			path = Home;
@@ -337,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90AAEF52C66158E0000AAB3 /* ContactListView.swift in Sources */,
 				B96061522C63DE4500EE263B /* Contact.swift in Sources */,
 				B96061542C63E1CB00EE263B /* ContactViewModel.swift in Sources */,
 				B96061262C63C08C00EE263B /* HomeView.swift in Sources */,

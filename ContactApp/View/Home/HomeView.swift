@@ -20,6 +20,7 @@ struct HomeView: View {
                 ScrollView {
                     HStack{
                         Text("A")
+                            .foregroundStyle(.black)
                             .fontWeight(.bold)
                             .padding(.horizontal, 10)
                         Spacer()
@@ -30,31 +31,7 @@ struct HomeView: View {
                     
                     ForEach(viewModel.contacts){contact in
                         NavigationLink(destination: ContactDetailView(contact: contact, viewModel: viewModel)){
-                            HStack(spacing: 16){
-                                if true{
-                                    Image(contact.image!)
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                        .clipShape(Circle())
-                                }else{
-                                    Image("placeholder_photo")
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                }  
-                                VStack(alignment: .leading){
-                                    Text("\(contact.firstName) \(contact.lastName)")
-                                        .fontWeight(.bold)
-                                        .foregroundStyle(Color("Font"))
-                                }
-                                Spacer()
-                                if contact.isFavorite{
-                                    Image(systemName: "star.fill")
-                                        .foregroundColor(Color("Icon"))
-                                        .padding(.trailing, 32)
-                                }
-                            }
-                            .padding(.leading ,16)
-                            .padding(.vertical, 12)
+                            ContactListView(contact: contact)
                         }
                         Divider()
                     }
@@ -88,4 +65,5 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
+
 
