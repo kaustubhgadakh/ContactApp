@@ -21,7 +21,9 @@ class ContactViewModel: ObservableObject{
             Contact(firstName: "Pratik", lastName: "Patil", mobileNumber: "7666098615", email: "pratikpatil@gmail.com", isFavorite: true, image: "img6"),
             Contact(firstName: "Shwetark", lastName: "Kadam", mobileNumber: "8766419101", email: "shwetarkkadam2001@gmail.com", isFavorite: true, image: "img4"),
             Contact(firstName: "Bharath", lastName: "S", mobileNumber: "1234567890", email: "bharath2001@gmail.com", isFavorite: true, image: "img4"),
-            Contact(firstName: "Vaibhav", lastName: "Chaudari", mobileNumber: "9834233273", email: "vaibhavchaudhari@gmail.com", isFavorite: true, image: "img5")
+            Contact(firstName: "Vaibhav", lastName: "Chaudari", mobileNumber: "9834233273", email: "vaibhavchaudhari@gmail.com", isFavorite: true, image: "img5"),
+            Contact(firstName: "Anirudha", lastName: "Kurhe", mobileNumber: "9172656770", email: "kaustubhgadakh@gmail.com", isFavorite: false, image: "img2"),
+            Contact(firstName: "Pappa", lastName: "👑", mobileNumber: "9890460177", email: "kishorgadakh@gmail.com", isFavorite: true, image: "Ganesh_img")
         ]
         
         contacts.sort{$0.firstName < $1.firstName}
