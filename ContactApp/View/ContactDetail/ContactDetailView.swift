@@ -22,8 +22,8 @@ struct ContactDetailView: View {
                         .overlay(alignment: .center) {
                             VStack{
                                 Spacer()
-                                if true{
-                                    Image(contact.image!)
+                                if let image = contact.image{
+                                    Image(uiImage: image)
                                         .resizable()
                                         .frame(width: 150, height: 150)
                                         .clipShape(Circle())
@@ -37,6 +37,25 @@ struct ContactDetailView: View {
                                                 .stroke(Color.white, lineWidth: 2)
                                         )
                                 }
+                                
+                                
+                                
+                                
+//                                if true{
+//                                    Image(contact.image!)
+//                                        .resizable()
+//                                        .frame(width: 150, height: 150)
+//                                        .clipShape(Circle())
+//                                        
+//                                }else{
+//                                    Image("placeholder_photo")
+//                                        .resizable()
+//                                        .frame(width: 150, height: 150)
+//                                        .background(
+//                                            Capsule()
+//                                                .stroke(Color.white, lineWidth: 2)
+//                                        )
+//                                }
                                 
                                 Text("\(contact.firstName) \(contact.lastName)")
                                     .font(.title2)

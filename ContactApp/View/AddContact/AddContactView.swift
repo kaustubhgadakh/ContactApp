@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddContactView: View {
     @ObservedObject var viewModel: ContactViewModel
@@ -16,7 +17,8 @@ struct AddContactView: View {
     @State private var mobileNumber: String = ""
     @State private var email: String = ""
     @State private var isFavorite: Bool = false
-    @State private var image: String = "placeholder_photo"
+    @State private var img: UIImage?
+    @State private var photosPickerItem: PhotosPickerItem?
     @State var saveAlert: Bool = false
     var body: some View {
         NavigationStack {
@@ -30,23 +32,22 @@ struct AddContactView: View {
                         .overlay(alignment: .center) {
                             VStack{
                                 Spacer()
-                                Image("placeholder_photo")
-                                    .resizable()
-                                    .frame(width: 150, height: 150)
-                                    .background(
-                                        Capsule()
-                                            .stroke(Color.white, lineWidth: 2)
-                                    )
-                                    .overlay(
-                                        Circle()
-                                            .fill(Color.white)
-                                            .frame(width: 50, height: 50)
-                                            .overlay(
-                                                Image("camera_button")
-                                                    .font(.title)
-                                                    .foregroundColor(.white)
-                                            ), alignment: .bottomTrailing
-                                    )
+                                PhotosPicker(selection: $photosPickerItem, matching: .images) {
+                                    Image(uiImage: img ?? UIImage(resource: .placeholderPhoto))
+                                        .resizable()
+                                        .frame(width: 150, height: 150)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            Circle()
+                                                .fill(Color.white)
+                                                .frame(width: 50, height: 50)
+                                                .overlay(
+                                                    Image("camera_button")
+                                                        .font(.title)
+                                                        .foregroundColor(.white)
+                                                ), alignment: .bottomTrailing
+                                        )
+                                }
                                 Spacer()
                             }
                             .padding(.bottom, 18)
@@ -130,6 +131,18 @@ struct AddContactView: View {
                     Spacer()
             
                 }
+                .onChange(of: photosPickerItem) { _, _ in
+                    Task{
+                        if let photosPickerItem,
+                           let data = try? await photosPickerItem.loadTransferable(type: Data.self){
+                            if let image = UIImage(data: data){
+                                img = image
+                            }
+                        }
+                        
+                        photosPickerItem = nil
+                    }
+                }
             }
             .navigationBarItems(leading: Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -137,7 +150,7 @@ struct AddContactView: View {
                     Text("Cancle")
                         .foregroundStyle(Color("Icon"))
                 }), trailing: Button(action: {
-                    let newContact = Contact(firstName: firstName, lastName: lastName, mobileNumber: mobileNumber, email: email, isFavorite: isFavorite, image: image)
+                    let newContact = Contact(firstName: firstName, lastName: lastName, mobileNumber: mobileNumber, email: email, isFavorite: isFavorite, image: img)
                     viewModel.addContact(contact: newContact)
                     saveAlert.toggle()
                 }, label: {

@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditContactView: View {
     @State var contact: Contact
     @ObservedObject var viewModel: ContactViewModel
     @Environment(\.presentationMode) var presentationMode
     @State var addContactAlert: Bool = false
+    @State private var img: UIImage?
+    @State private var photosPickerItem: PhotosPickerItem?
     var body: some View {
         NavigationStack {
             ZStack{
@@ -24,40 +27,37 @@ struct EditContactView: View {
                         .overlay(alignment: .center) {
                             VStack{
                                 Spacer()
-                                if true{
-                                    Image(contact.image!)
-                                        .resizable()
-                                        .frame(width: 150, height: 150)
-                                        .clipShape(Circle())
-                                        .overlay(
-                                            Circle()
-                                                .fill(Color.white)
-                                                .frame(width: 50, height: 50)
-                                                .overlay(
-                                                    Image("camera_button")
-                                                        .font(.title)
-                                                        .foregroundColor(.white)
-                                                ), alignment: .bottomTrailing
+                                PhotosPicker(selection: $photosPickerItem, matching: .images) {
+                                    if let image = contact.image{
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .frame(width: 150, height: 150)
+                                            .clipShape(Circle())
+                                            .overlay(
+                                                Circle()
+                                                    .fill(Color.white)
+                                                    .frame(width: 50, height: 50)
+                                                    .overlay(
+                                                        Image("camera_button")
+                                                            .font(.title)
+                                                            .foregroundColor(.white)
+                                                    ), alignment: .bottomTrailing
                                         )
-                                    
-                                }else{
-                                    Image("placeholder_photo")
-                                        .resizable()
-                                        .frame(width: 150, height: 150)
-                                        .background(
-                                            Capsule()
-                                                .stroke(Color.white, lineWidth: 2)
+                                    }else{
+                                        Image("placeholder_photo")
+                                            .resizable()
+                                            .frame(width: 150, height: 150)
+                                            .overlay(
+                                                Circle()
+                                                    .fill(Color.white)
+                                                    .frame(width: 50, height: 50)
+                                                    .overlay(
+                                                        Image("camera_button")
+                                                            .font(.title)
+                                                            .foregroundColor(.white)
+                                                    ), alignment: .bottomTrailing
                                         )
-                                        .overlay(
-                                            Circle()
-                                                .fill(Color.white)
-                                                .frame(width: 50, height: 50)
-                                                .overlay(
-                                                    Image("camera_button")
-                                                        .font(.title)
-                                                        .foregroundColor(.white)
-                                                ), alignment: .bottomTrailing
-                                        )
+                                    }
                                 }
                                 Spacer()
                             }
@@ -141,6 +141,18 @@ struct EditContactView: View {
                     Divider()
                     Spacer()
             
+                }
+                .onChange(of: photosPickerItem) { _, _ in
+                    Task{
+                        if let photosPickerItem,
+                           let data = try? await photosPickerItem.loadTransferable(type: Data.self){
+                            if let image = UIImage(data: data){
+                                img = image
+                            }
+                        }
+                        
+                        photosPickerItem = nil
+                    }
                 }
             }
             .navigationBarItems(leading: Button(action: {

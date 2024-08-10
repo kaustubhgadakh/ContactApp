@@ -32,8 +32,8 @@ struct HomeView: View {
                     ForEach(viewModel.contacts){contact in
                         NavigationLink(destination: ContactDetailView(contact: contact, viewModel: viewModel)){
                             HStack(spacing: 16){
-                                if true{
-                                    Image(contact.image!)
+                                if let image = contact.image{
+                                    Image(uiImage: image)
                                         .resizable()
                                         .frame(width: 50, height: 50)
                                         .clipShape(Circle())
@@ -42,6 +42,18 @@ struct HomeView: View {
                                         .resizable()
                                         .frame(width: 50, height: 50)
                                 }
+                                
+                                
+//                                if true{
+//                                    Image(contact.image!)
+//                                        .resizable()
+//                                        .frame(width: 50, height: 50)
+//                                        .clipShape(Circle())
+//                                }else{
+//                                    Image("placeholder_photo")
+//                                        .resizable()
+//                                        .frame(width: 50, height: 50)
+//                                }
                                 VStack(alignment: .leading){
                                     Text("\(contact.firstName) \(contact.lastName)")
                                         .fontWeight(.bold)
