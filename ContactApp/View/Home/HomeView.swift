@@ -45,17 +45,6 @@ struct HomeView: View {
                                         .frame(width: 50, height: 50)
                                 }
                                 
-                                
-//                                if true{
-//                                    Image(contact.image!)
-//                                        .resizable()
-//                                        .frame(width: 50, height: 50)
-//                                        .clipShape(Circle())
-//                                }else{
-//                                    Image("placeholder_photo")
-//                                        .resizable()
-//                                        .frame(width: 50, height: 50)
-//                                }
                                 VStack(alignment: .leading){
                                     Text("\(contact.firstName) \(contact.lastName)")
                                         .fontWeight(.bold)
@@ -104,6 +93,7 @@ struct HomeView: View {
             
             Spacer()
         }
+        .accentColor(Color("Icon"))
     }
 }
 

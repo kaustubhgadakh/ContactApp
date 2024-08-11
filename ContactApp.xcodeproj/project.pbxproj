@@ -93,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				B9146BA02C68A53D00EBE28A /* ContentUnavailable.swift */,
+				B94371732C64759400CA23A6 /* AlphabetIndexView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -189,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				B96061252C63C08C00EE263B /* HomeView.swift */,
-				B94371732C64759400CA23A6 /* AlphabetIndexView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
