@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var viewModel = ContactViewModel()
     @State private var addContact = false
+    @State private var  showAlert = false
+
     
     var body: some View {
         NavigationView{
@@ -73,9 +75,12 @@ struct HomeView: View {
                     }
                     .navigationTitle("Contact")
                     .navigationBarTitleDisplayMode(.inline)
-                    .navigationBarItems(leading: Button(action: {}, label: {
+                    .navigationBarItems(leading: Button(action: {
+                        showAlert.toggle()
+                    }, label: {
                             Text("Groups")
                                 .foregroundStyle(Color("Icon"))
+                                
                         }), trailing: Button(action: {
                             addContact.toggle()
                         }, label: {
@@ -85,6 +90,10 @@ struct HomeView: View {
                             .fullScreenCover(isPresented: $addContact, content: {
                                 AddContactView(viewModel: viewModel)
                             })
+                                .fullScreenCover(isPresented: $showAlert, content: {
+                                    ContentUnavailable()
+                                })
+                                
                     )
                 }
                 .overlay(alignment: .trailing) {

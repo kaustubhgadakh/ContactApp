@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B90AAEF32C653FA30000AAB3 /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90AAEF22C653FA30000AAB3 /* UITests.swift */; };
+		B9146BA12C68A53D00EBE28A /* ContentUnavailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9146BA02C68A53D00EBE28A /* ContentUnavailable.swift */; };
 		B94371742C64759400CA23A6 /* AlphabetIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94371732C64759400CA23A6 /* AlphabetIndexView.swift */; };
 		B96061242C63C08C00EE263B /* ContactAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96061232C63C08C00EE263B /* ContactAppApp.swift */; };
 		B96061262C63C08C00EE263B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96061252C63C08C00EE263B /* HomeView.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		B90AAEF22C653FA30000AAB3 /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
+		B9146BA02C68A53D00EBE28A /* ContentUnavailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentUnavailable.swift; sourceTree = "<group>"; };
 		B94371732C64759400CA23A6 /* AlphabetIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphabetIndexView.swift; sourceTree = "<group>"; };
 		B96061202C63C08C00EE263B /* ContactApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96061232C63C08C00EE263B /* ContactAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAppApp.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9146B9F2C68A52700EBE28A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B9146BA02C68A53D00EBE28A /* ContentUnavailable.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		B96061172C63C08C00EE263B = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 		B96061502C63C42F00EE263B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B9146B9F2C68A52700EBE28A /* Component */,
 				B96061552C63E1EF00EE263B /* Home */,
 				B96061562C63E1FD00EE263B /* ContactDetail */,
 				B96061572C63E21900EE263B /* EditContact */,
@@ -342,6 +353,7 @@
 				B96061262C63C08C00EE263B /* HomeView.swift in Sources */,
 				B96061242C63C08C00EE263B /* ContactAppApp.swift in Sources */,
 				B960615B2C63F46F00EE263B /* ContactDetailView.swift in Sources */,
+				B9146BA12C68A53D00EBE28A /* ContentUnavailable.swift in Sources */,
 				B960615F2C63F4ED00EE263B /* AddContactView.swift in Sources */,
 				B94371742C64759400CA23A6 /* AlphabetIndexView.swift in Sources */,
 				B960615D2C63F48E00EE263B /* EditContactView.swift in Sources */,
