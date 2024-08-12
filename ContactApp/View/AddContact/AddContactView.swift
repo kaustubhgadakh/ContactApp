@@ -158,7 +158,11 @@ struct AddContactView: View {
                         .foregroundStyle(Color("Icon"))
                 })
                 .alert(isPresented: $saveAlert, content: {
-                    Alert(title: Text("Success"))
+                    Alert(title: Text("Add Successfully"),
+                          message: Text(""),
+                          primaryButton: .destructive(Text("Save"), action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }), secondaryButton: .cancel())
                 })
             )
         }

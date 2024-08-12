@@ -154,7 +154,11 @@ struct EditContactView: View {
                 }
                 )
                 .alert(isPresented: $addContactAlert, content: {
-                    Alert(title: Text("Success"))
+                    Alert(title: Text("Edit Successfully"),
+                          message: Text(""),
+                          primaryButton: .destructive(Text("Save"), action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }), secondaryButton: .cancel())
                 })
             )
         }

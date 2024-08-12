@@ -40,4 +40,9 @@ class ContactViewModel: ObservableObject{
             contacts[index] = contact
         }
     }
+    
+    func deleteContact(at offsets: IndexSet){
+        contacts.remove(atOffsets: offsets)
+    }
+    
 }
